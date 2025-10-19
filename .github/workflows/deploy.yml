@@ -1,0 +1,26 @@
+name: Deploy
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install server dependencies
+        run: cd server && npm ci
+      - name: Install client dependencies
+        run: cd client && npm ci
+      - name: Build client
+        run: cd client && npm run build
+      - name: Upload dist
+        uses: actions/upload-artifact@v4
+        with:
+          name: client-dist
+          path: client/dist

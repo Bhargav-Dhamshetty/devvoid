@@ -1,0 +1,27 @@
+{
+  "name": "ai-project-management",
+  "version": "1.0.0",
+  "description": "AI-powered MERN stack project management system with Gemini AI integration",
+  "private": true,
+  "scripts": {
+    "install-all": "cd server && npm install && cd ../client && npm install",
+    "dev:server": "cd server && npm run dev",
+    "dev:client": "cd client && npm run dev",
+    "build": "cd client && npm run build",
+    "start": "cd server && npm start"
+  },
+  "keywords": [
+    "mern",
+    "react",
+    "express",
+    "mongodb",
+    "gemini-ai",
+    "project-management",
+    "kanban"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1"
+  }
+}

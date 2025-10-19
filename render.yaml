@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: ai-project-backend
+    env: node
+    plan: starter
+    branch: main
+    repo: https://github.com/Bhargav-Dhamshetty/devvoid
+    buildCommand: "cd server && npm install"
+    startCommand: "cd server && npm start"
+    region: oregon
+    envVars:
+      - key: MONGO_URI
+        from: "secret:MONGO_URI"
+      - key: GEMINI_API_KEY
+        from: "secret:GEMINI_API_KEY"
+      - key: GEMINI_MODEL
+        from: "secret:GEMINI_MODEL"
+      - key: NODE_ENV
+        value: production
